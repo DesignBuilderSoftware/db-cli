@@ -1,0 +1,24 @@
+[project]
+name = "db-cli"
+version = "0.1"
+description = "Command line interface for DesignBuilder file operations."
+authors = [
+    { name = "Bartlomiej Tokarzewski", email = "bartlomiej.tokarzewski@gmail.com" },
+]
+dependencies = [
+    "fire",
+    "designbuilder_schema @ git+https://github.com/Tokarzewski/designbuilder_schema.git",
+    "db-process @ git+https://github.com/DesignBuilderSoftware/db-process.git",
+]
+
+readme = "README.md"
+
+[project.urls]
+Homepage = "https://github.com/Tokarzewski/db-cli"
+"Bug Tracker" = "https://github.com/Tokarzewski/db-cli/issues"
+
+[tool.setuptools]
+packages = ["db_cli"]
+
+[project.scripts]
+db-cli = "db_cli.cli:main"
