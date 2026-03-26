@@ -40,8 +40,6 @@ db-cli dsb2xml Shoebox261.dsb --output exported.xml --exe "C:\Program Files\Desi
 db-cli close
 ```
 
-You can also run commands via `python -m db_cli.cli` instead of `db-cli`.
-
 ## Requirements
 
 - Python 3
