@@ -5,7 +5,7 @@ Command line interface for [DesignBuilder](https://designbuilder.co.uk/) file op
 ## Installation
 
 ```bash
-pip install git+https://github.com/Tokarzewski/db-cli.git
+pip install git+https://github.com/DesignBuilderSoftware/db-cli
 ```
 
 ## Commands
