@@ -2,6 +2,7 @@
 name = "db-cli"
 version = "0.1"
 description = "Command line interface for DesignBuilder file operations."
+requires-python = ">=3.10"
 authors = [
     { name = "Bartlomiej Tokarzewski", email = "bartlomiej.tokarzewski@gmail.com" },
 ]
