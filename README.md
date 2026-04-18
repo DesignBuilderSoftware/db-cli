@@ -12,7 +12,7 @@ pip install git+https://github.com/DesignBuilderSoftware/db-cli
 
 | Command | Description |
 |---------|-------------|
-| `version <file>` | Show the dsbJSON/dsbXML schema version of a file |
+| `version <file>` | Show the dsbXML schema version of a file |
 | `validate <file>` | Validate a file against the DesignBuilder schema |
 | `xml2json <file>` | Convert a DesignBuilder XML file to JSON |
 | `json2xml <file>` | Convert a DesignBuilder JSON file to XML |
