@@ -4,38 +4,24 @@ cli.py
 The command line interface for DesignBuilder file operations.
 """
 
-import sys, os
-from pathlib import Path
+from db_process import kill_process
+from db_schema.utils import load_model
 from fire import Fire
 
-# Add the local designbuilder_schema repository to the import path
-repo_root = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "..", "designbuilder_schema")
-)
-if repo_root not in sys.path:
-    sys.path.insert(0, repo_root)
-from designbuilder_schema.utils import file_to_dict, load_model, dict_to_file
 from db_cli.converter import dsb_to_xml as _dsb_to_xml
-from db_cli.converter import xml_to_dsb as _xml_to_dsb
-from db_process import kill_process
 
 
 def get_version(filepath: str) -> str:
     """Return the schema version.
 
     Handles malformed XML files by catching parsing errors and
-    reporting a user‑friendly message.
+    reporting a user-friendly message.
     """
     try:
-        dictionary = file_to_dict(filepath)
-    except Exception as e:
+        model = load_model(filepath)
+    except Exception as e:  # pylint: disable=broad-exception-caught
         raise RuntimeError(f"Failed to parse XML file '{filepath}': {e}") from e
-    if "dsbXML" in dictionary:
-        return dictionary["dsbXML"]["version"]
-    else:
-        raise RuntimeError(
-            f"Can't find dsbXML in parsed dictionary: {list(dictionary.keys())}"
-        )
+    return model.version
 
 
 def validate_file(filepath: str) -> str:
@@ -83,6 +69,7 @@ def close() -> str:
 
 
 def main():
+    """Entry point: expose the CLI commands via python-fire."""
     Fire(
         {
             "version": get_version,
