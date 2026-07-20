@@ -48,5 +48,5 @@ db-cli close
 ## Dependencies
 
 - [fire](https://github.com/google/python-fire) — CLI generation
-- [designbuilder_schema](https://github.com/Tokarzewski/designbuilder_schema) — schema validation and conversion utilities
+- [db-schema](https://github.com/Tokarzewski/db-schema) — schema validation and conversion utilities
 - [db-process](https://github.com/DesignBuilderSoftware/db-process) — DesignBuilder process management

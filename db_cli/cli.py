@@ -4,17 +4,10 @@ cli.py
 The command line interface for DesignBuilder file operations.
 """
 
-import sys, os
-from pathlib import Path
 from fire import Fire
 
-# Add the local designbuilder_schema repository to the import path
-repo_root = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "..", "designbuilder_schema")
-)
-if repo_root not in sys.path:
-    sys.path.insert(0, repo_root)
-from designbuilder_schema.utils import file_to_dict, load_model, dict_to_file
+from db_schema.utils import load_model
+from db_cli.xml_utils import file_to_dict, dict_to_file
 from db_cli.converter import dsb_to_xml as _dsb_to_xml
 from db_cli.converter import xml_to_dsb as _xml_to_dsb
 from db_process import kill_process

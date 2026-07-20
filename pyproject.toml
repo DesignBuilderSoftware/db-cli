@@ -8,7 +8,7 @@ authors = [
 ]
 dependencies = [
     "fire",
-    "designbuilder_schema @ git+https://github.com/Tokarzewski/designbuilder_schema.git",
+    "designbuilder_schema @ git+https://github.com/Tokarzewski/db-schema.git",
     "db-process @ git+https://github.com/DesignBuilderSoftware/db-process.git",
 ]
 
