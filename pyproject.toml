@@ -8,15 +8,15 @@ authors = [
 ]
 dependencies = [
     "fire",
-    "designbuilder_schema @ git+https://github.com/Tokarzewski/db-schema.git",
+    "designbuilder_schema @ git+https://github.com/DesignBuilderSoftware/db-schema.git",
     "db-process @ git+https://github.com/DesignBuilderSoftware/db-process.git",
 ]
 
 readme = "README.md"
 
 [project.urls]
-Homepage = "https://github.com/Tokarzewski/db-cli"
-"Bug Tracker" = "https://github.com/Tokarzewski/db-cli/issues"
+Homepage = "https://github.com/DesignBuilderSoftware/db-cli"
+"Bug Tracker" = "https://github.com/DesignBuilderSoftware/db-cli/issues"
 
 [tool.setuptools]
 packages = ["db_cli"]
