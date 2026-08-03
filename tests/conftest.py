@@ -2,7 +2,6 @@
 
 import pytest
 
-
 SAMPLE_VERSION = "2026.1.0.010"
 
 VALID_DSBXML = f"""<?xml version="1.0" encoding="ISO-8859-15" standalone="yes"?>

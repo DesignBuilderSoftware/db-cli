@@ -9,7 +9,7 @@ from db_schema.utils import load_model
 from fire import Fire
 
 from db_cli.converter import dsb_to_xml as _dsb_to_xml
-from db_cli.xml_utils import dict_to_file, file_to_dict
+from db_cli.xml_utils import file_to_dict
 
 
 def get_version(filepath: str) -> str:
@@ -24,10 +24,7 @@ def get_version(filepath: str) -> str:
         raise RuntimeError(f"Failed to parse XML file '{filepath}': {e}") from e
     if "dsbXML" in dictionary:
         return dictionary["dsbXML"]["version"]
-    else:
-        raise RuntimeError(
-            f"Can't find dsbXML in parsed dictionary: {list(dictionary.keys())}"
-        )
+    raise RuntimeError(f"Can't find dsbXML in parsed dictionary: {list(dictionary.keys())}")
 
 
 def validate_file(filepath: str) -> str:

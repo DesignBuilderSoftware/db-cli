@@ -41,9 +41,7 @@ class TestGetVersion:
 
     def test_uses_file_to_dict_result(self, monkeypatch):
         """Pure unit test: version is read from dictionary['dsbXML']['version']."""
-        monkeypatch.setattr(
-            cli, "file_to_dict", lambda fp: {"dsbXML": {"version": "9.9.9"}}
-        )
+        monkeypatch.setattr(cli, "file_to_dict", lambda fp: {"dsbXML": {"version": "9.9.9"}})
         assert cli.get_version("whatever.xml") == "9.9.9"
 
 
