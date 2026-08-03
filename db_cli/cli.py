@@ -4,24 +4,23 @@ cli.py
 The command line interface for DesignBuilder file operations.
 """
 
+from db_process import kill_process
+from db_schema.utils import load_model
 from fire import Fire
 
-from db_schema.utils import load_model
-from db_cli.xml_utils import file_to_dict, dict_to_file
 from db_cli.converter import dsb_to_xml as _dsb_to_xml
-from db_cli.converter import xml_to_dsb as _xml_to_dsb
-from db_process import kill_process
+from db_cli.xml_utils import dict_to_file, file_to_dict
 
 
 def get_version(filepath: str) -> str:
     """Return the schema version.
 
     Handles malformed XML files by catching parsing errors and
-    reporting a user‑friendly message.
+    reporting a user-friendly message.
     """
     try:
         dictionary = file_to_dict(filepath)
-    except Exception as e:
+    except Exception as e:  # pylint: disable=broad-exception-caught
         raise RuntimeError(f"Failed to parse XML file '{filepath}': {e}") from e
     if "dsbXML" in dictionary:
         return dictionary["dsbXML"]["version"]
@@ -76,6 +75,7 @@ def close() -> str:
 
 
 def main():
+    """Entry point: expose the CLI commands via python-fire."""
     Fire(
         {
             "version": get_version,

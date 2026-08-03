@@ -1,0 +1,36 @@
+repos:
+  # Ruff for linting and formatting
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.11
+    hooks:
+      - id: ruff
+        args: [--fix, --select, I]
+        name: ruff-imports
+      - id: ruff-check
+        name: ruff-check
+      - id: ruff-format
+        name: ruff-format
+
+  # Pylint for additional static analysis
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: uv run pylint
+        language: system
+        types: [python]
+        pass_filenames: false
+        args:
+          [
+            db_cli
+          ]
+
+  # Tests
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: uv run pytest -q
+        language: system
+        types: [python]
+        pass_filenames: false
