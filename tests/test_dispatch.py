@@ -104,9 +104,7 @@ def test_missing_required_argument_exits_with_code_2(monkeypatch, capsys):
 
 
 def test_unexpected_extra_argument_exits_with_code_2(monkeypatch, capsys, valid_xml):
-    monkeypatch.setattr(
-        sys, "argv", ["db-cli", "version", str(valid_xml), "surplus-arg"]
-    )
+    monkeypatch.setattr(sys, "argv", ["db-cli", "version", str(valid_xml), "surplus-arg"])
     with pytest.raises(SystemExit) as excinfo:
         cli.main()
     assert excinfo.value.code == 2
