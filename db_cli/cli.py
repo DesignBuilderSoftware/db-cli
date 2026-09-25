@@ -6,7 +6,7 @@ The command line interface for DesignBuilder file operations.
 
 from fire import Fire
 
-from db_schema.utils import load_model
+from dsbxml.utils import load_model
 from db_cli.xml_utils import file_to_dict, dict_to_file
 from db_cli.converter import dsb_to_xml as _dsb_to_xml
 from db_cli.converter import xml_to_dsb as _xml_to_dsb
