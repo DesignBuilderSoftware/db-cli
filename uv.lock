@@ -52,7 +52,7 @@ version = "0.1"
 source = { editable = "." }
 dependencies = [
     { name = "db-process" },
-    { name = "designbuilder-schema" },
+    { name = "dsbxml" },
     { name = "fire" },
 ]
 
@@ -66,8 +66,8 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "db-process", git = "https://github.com/DesignBuilderSoftware/db-process.git" },
-    { name = "designbuilder-schema", git = "https://github.com/Tokarzewski/designbuilder_schema.git" },
+    { name = "db-process", specifier = ">=0.2.0" },
+    { name = "dsbxml", specifier = ">=1.3.0" },
     { name = "fire" },
 ]
 
@@ -82,19 +82,13 @@ dev = [
 [[package]]
 name = "db-process"
 version = "0.2.0"
-source = { git = "https://github.com/DesignBuilderSoftware/db-process.git#1b617e06ea7d14ca2e65fdcf463c03efe08c87cf" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "psutil" },
 ]
-
-[[package]]
-name = "designbuilder-schema"
-version = "1.0.2"
-source = { git = "https://github.com/Tokarzewski/designbuilder_schema.git#5a0d11c217877af1eaaebf22ae1e2fcc50332d4a" }
-dependencies = [
-    { name = "lxml" },
-    { name = "pydantic" },
-    { name = "pydantic-xml" },
+sdist = { url = "https://files.pythonhosted.org/packages/78/77/ddf0fb16e03133c15b6761048e45953c20d19c45dba8f756f4ac7622b001/db_process-0.2.0.tar.gz", hash = "sha256:1c2498438ac9e0a4305c838f4380083eafa85f5b8bc610ed9e51b14073448668", size = 24005, upload-time = "2026-05-07T20:14:33.723Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/27/5b/abc72d5889920de112e8c3c00d50106ab9ca85a1ad6fe530c501c24f970c/db_process-0.2.0-py3-none-any.whl", hash = "sha256:1d787b9918cbd58679b68c4f8c5d97d75ee9c3136ad7f4086208d13a1eec588c", size = 19062, upload-time = "2026-05-07T20:14:32.329Z" },
 ]
 
 [[package]]
@@ -116,11 +110,25 @@ wheels = [
 ]
 
 [[package]]
+name = "dsbxml"
+version = "1.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "lxml" },
+    { name = "pydantic" },
+    { name = "pydantic-xml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/85/81/81a5edfa361fbc18c26d81e66eb4ad611ac19ea99f7abb126a35afc135e1/dsbxml-1.3.0.tar.gz", hash = "sha256:3851f235efbf8fb0bf6ce8748c27b43850e7964cfa5f9895cbcec155bb337f71", size = 36330, upload-time = "2026-09-30T13:06:25.256Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ea/ea/d3c5333a55083191170d4851a01c76b3b40e1870b2592f37e4770ba297b4/dsbxml-1.3.0-py3-none-any.whl", hash = "sha256:5230a1ad674526ae328e86a4a6c7a7ea1b0653a9b992895e55614a5050fa43e0", size = 40531, upload-time = "2026-09-30T13:06:23.695Z" },
+]
+
+[[package]]
 name = "exceptiongroup"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
+    { name = "typing-extensions" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/50/79/66800aadf48771f6b62f7eb014e352e5d06856655206165d775e675a02c9/exceptiongroup-1.3.1.tar.gz", hash = "sha256:8b412432c6055b0b7d14c310000ae93352ed6754f70fa8f7c34141f91c4e3219", size = 30371, upload-time = "2025-11-21T23:01:54.787Z" }
 wheels = [

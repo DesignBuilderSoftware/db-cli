@@ -8,8 +8,8 @@ authors = [
 ]
 dependencies = [
     "fire",
-    "designbuilder_schema @ git+https://github.com/Tokarzewski/designbuilder_schema.git",
-    "db-process @ git+https://github.com/DesignBuilderSoftware/db-process.git",
+    "dsbxml>=1.3.0",
+    "db-process>=0.2.0",
 ]
 
 readme = "README.md"

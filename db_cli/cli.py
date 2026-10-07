@@ -5,7 +5,7 @@ The command line interface for DesignBuilder file operations.
 """
 
 from db_process import kill_process
-from db_schema.utils import load_model
+from dsbxml import load_model
 from fire import Fire
 
 from db_cli.converter import dsb_to_xml as _dsb_to_xml

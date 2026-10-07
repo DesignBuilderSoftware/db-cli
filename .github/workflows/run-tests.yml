@@ -23,10 +23,6 @@ jobs:
         uses: astral-sh/setup-uv@v5
       - name: Set up Python
         run: uv python install 3.12
-      # designbuilder_schema is installed from a private repo; authenticate
-      # git with a PAT (DB_SCHEMA_TOKEN secret) before resolving dependencies.
-      - name: Configure git auth for private dependency
-        run: git config --global url."https://x-access-token:${{ secrets.DB_SCHEMA_TOKEN }}@github.com/".insteadOf "https://github.com/"
       - name: Install dependencies
         run: uv sync --group dev
       - name: Run ruff check
@@ -48,8 +44,6 @@ jobs:
         uses: astral-sh/setup-uv@v5
       - name: Set up Python ${{ matrix.python-version }}
         run: uv python install ${{ matrix.python-version }}
-      - name: Configure git auth for private dependency
-        run: git config --global url."https://x-access-token:${{ secrets.DB_SCHEMA_TOKEN }}@github.com/".insteadOf "https://github.com/"
       - name: Install dependencies
         run: uv sync --group dev
       - name: Run tests
