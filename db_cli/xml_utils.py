@@ -4,7 +4,7 @@ xml_utils.py
 Lightweight XML helpers for db_cli.
 
 These were originally imported from ``designbuilder_schema.utils`` but the
-schema package (now ``db_schema``) no longer ships them, so db_cli carries
+schema package (now published on PyPI as ``dsbxml``) no longer ships them, so db_cli carries
 its own ElementTree-based implementations.
 """
 
