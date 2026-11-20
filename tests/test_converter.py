@@ -232,9 +232,7 @@ class TestXmlToDsbConverter:
         assert calls["kill_when_idle"] == 1
         assert calls["run_async"][0]["path"] == xml_file.resolve()
 
-    def test_idle_detection_failure_falls_back_to_kill(
-        self, monkeypatch, xml_file, no_sleep
-    ):
+    def test_idle_detection_failure_falls_back_to_kill(self, monkeypatch, xml_file, no_sleep):
         created = xml_file.parent / "Model.dsb"
 
         def create_output(path):
@@ -245,9 +243,7 @@ class TestXmlToDsbConverter:
         assert result == created
         assert calls["kill_process"] == 1
 
-    def test_pre_existing_dsb_is_not_mistaken_for_output(
-        self, monkeypatch, xml_file, no_sleep
-    ):
+    def test_pre_existing_dsb_is_not_mistaken_for_output(self, monkeypatch, xml_file, no_sleep):
         old = xml_file.parent / "Old.dsb"
         old.write_bytes(b"old")
         self._patch_run(monkeypatch)

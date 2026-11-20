@@ -113,7 +113,7 @@ def dsb_to_xml(
     # DesignBuilder writes <stem>.xml next to the .dsb
     expected_xml = dsb_path.with_suffix(".xml")
 
-    handle = run_async(dsb_path, export_xml(), exe_path=exe_path)
+    run_async(dsb_path, export_xml(), exe_path=exe_path)
     try:
         found = _wait_for_file(expected_xml, timeout=timeout)
     finally:
@@ -188,10 +188,10 @@ def xml_to_dsb(
     # XML import: no /process= needed, just open the file.
     # DB writes the .dsb once its import work is done, so we let it
     # run until CPU goes idle, then kill it.
-    handle = run_async(xml_path, exe_path=exe_path)
+    run_async(xml_path, exe_path=exe_path)
     try:
         kill_when_idle(startup_period=timeout)
-    except Exception:
+    except Exception:  # pylint: disable=broad-exception-caught
         kill_process()
 
     # Small delay to let the filesystem flush after process exit
@@ -200,9 +200,7 @@ def xml_to_dsb(
     created_dsb = _find_new_dsb(parent, existing_dsbs, xml_path.stem)
 
     if created_dsb is None:
-        raise FileNotFoundError(
-            f"DesignBuilder did not produce a .dsb file in: {parent}"
-        )
+        raise FileNotFoundError(f"DesignBuilder did not produce a .dsb file in: {parent}")
 
     # Move to desired location if requested
     if output_filepath:

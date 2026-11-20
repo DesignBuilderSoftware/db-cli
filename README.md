@@ -49,4 +49,4 @@ db-cli close
 
 - [fire](https://github.com/google/python-fire) — CLI generation
 - [dsbxml](https://pypi.org/project/dsbxml/) ([source](https://github.com/DesignBuilderSoftware/db-schema)) — dsbXML read / edit / write and validation
-- [db-process](https://github.com/DesignBuilderSoftware/db-process) — DesignBuilder process management
+- [db-process](https://pypi.org/project/db-process/) — DesignBuilder process management

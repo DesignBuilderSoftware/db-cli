@@ -33,9 +33,8 @@ def dict_to_file(dictionary: dict, filepath) -> None:
     """
     if len(dictionary) != 1:
         raise ValueError(
-            f"Expected a single root entry, got {len(dictionary)}: "
-            f"{list(dictionary.keys())}"
+            f"Expected a single root entry, got {len(dictionary)}: {list(dictionary.keys())}"
         )
-    (root_tag, attributes), = dictionary.items()
+    ((root_tag, attributes),) = dictionary.items()
     root = ET.Element(root_tag, {k: str(v) for k, v in attributes.items()})
     ET.ElementTree(root).write(filepath, encoding="unicode", xml_declaration=True)
