@@ -48,5 +48,5 @@ db-cli close
 ## Dependencies
 
 - [fire](https://github.com/google/python-fire) — CLI generation
-- [dsbxml](https://pypi.org/project/dsbxml/) — schema validation and conversion utilities
+- [dsbxml](https://pypi.org/project/dsbxml/) ([source](https://github.com/DesignBuilderSoftware/db-schema)) — dsbXML read / edit / write and validation
 - [db-process](https://pypi.org/project/db-process/) — DesignBuilder process management
